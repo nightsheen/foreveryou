@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>生日快乐！---一生有你（FLASH）</title>
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+<link href='//cdn.bootcdn.net/ajax/libs/font-awesome/6.5.2/css/solid.min.css' rel='stylesheet'>
+<link href='//cdn.bootcdn.net/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css' rel='stylesheet'>
+<style>
+#links > a, #links > a:link, #links > a:visited {
+	color: red;
+}
+#links > a:hover {
+	color: green;
+}
+
+#nav > a, #nav > a:link, #nav > a:visited {
+	color: black;
+}
+#nav > a:hover {
+	color: white;
+}
+.recommend_list li .recommend_detail .detail .dname {
+	width: 250px !important;
+}
+
+/*自定义样式*/
+.with-love {
+	display: inline-block;
+	color: red;
+	margin: 0 5px;
+	animation: iconAnimate 1.33s ease-in-out infinite;
+}
+@-moz-keyframes iconAnimate {
+	0%, 100% {
+		transform:scale(1)
+	}
+	10%, 30% {
+		transform:scale(.9)
+	}
+	20%, 40%, 50%, 60%, 70%, 80% {
+		transform:scale(1.1)
+	}
+}
+@-webkit-keyframes iconAnimate {
+	0%, 100% {
+		transform:scale(1)
+	}
+	10%, 30% {
+		transform:scale(.9)
+	}
+	20%, 40%, 50%, 60%, 70%, 80% {
+		transform:scale(1.1)
+	}
+}
+@-o-keyframes iconAnimate {
+	0%, 100% {
+		transform:scale(1)
+	}
+	10%, 30% {
+		transform:scale(.9)
+	}
+	20%, 40%, 50%, 60%, 70%, 80% {
+		transform:scale(1.1)
+	}
+}
+@keyframes iconAnimate {
+	0%, 100% {
+		transform:scale(1)
+	}
+	10%, 30% {
+		transform:scale(.9)
+	}
+	20%, 40%, 50%, 60%, 70%, 80% {
+		transform:scale(1.1)
+	}
+}
+.sep
+{
+	color:red
+}
+</style>
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12" style="margin-top: 0px;">
+			<div class="col-md-12" style="margin-top: 0px;">
+				<div id="jwplayer"></div>
+				<script type="text/javascript">
+				const playerInstance = jwplayer("jwplayer").setup({
+					//base: "/forever/jwplayer",
+					//file: "https://189.ly93.cc/uEBNrauMrqI3/92369161241297172?q=C-cUS2US8M3rq5do7T3sEQ",
+					playlist: [{
+						"file": "https://www.itisxx.com/love.m4a",
+						"type": "m4a",
+						"mediaid": "1",
+						"title": "生日快乐！",
+						"description": "I miss you!",
+						"image": "love.png"
+					},{
+						"file": "https://www.itisxx.com/needyou.mp4",
+						"mediaid": "1",
+						"title": "生日快乐！",
+						"description": "Wish You Happy Everyday!",
+						"image": "happy.jpg"
+					},{
+						"file": "https://www.itisxx.com/foreveryou.mp4",
+						"mediaid": "1",
+						"title": "生日快乐！",
+						"description": "Wish You Happy Everyday!",
+						"image": "happy.jpg"
+					},{
+						"file": "https://www.itisxx.com/withyou.mp4",
+						"mediaid": "2",
+						"title": "生日快乐！",
+						"description": "Wish You Happy Everyday!",
+						"image": "happy.jpg"
+					}],
+					aspectratio: "16:7",
+					//autostart: "viewable",
+					stretching: "exactfit",
+					repeat: false,
+					volume: 90,
+					width: '100%',
+					height: '100%',
+					dock: true,
+					controls:true,
+					skin: {
+						name: 'alaska',
+						url: 'alaska.css'
+					},
+					displaydescription: true,
+					displaytitle: true,
+					playbackRateControls: false,
+					preload: "metadata",
+					stretching: "uniform",
+					
+					aboutlink:'http://www.yini.org/club/garden.html',
+					abouttext:'I love you forever'
+				});
+
+				const buttonId = 'download-video-button';
+				const iconPath = 'download.svg';
+				const tooltipText = '下载';
+
+				// Call the player's `addButton` API method to add the custom button
+				playerInstance.addButton(iconPath, tooltipText, buttonClickAction, buttonId);
+
+				// This function is executed when the button is clicked
+				function buttonClickAction() {
+				  const playlistItem = playerInstance.getPlaylistItem();
+
+				  // Create an anchor element
+				  const anchor = document.createElement('a');
+
+				  // Set the anchor's `href` attribute to the media's file URL
+				  const fileUrl = playlistItem.file;
+				  anchor.setAttribute('href', fileUrl);
+
+				  // set the anchor's `download` attribute to the media's file name
+				  const downloadName = playlistItem.file.split('/').pop();
+				  anchor.setAttribute('download', downloadName);
+
+				  // Set the anchor's style to hide it when it's added to the page
+				  anchor.style.display = 'none';
+
+				  // Add the anchor to the page
+				  document.body.appendChild(anchor);
+
+				  // Trigger a click event to activate the anchor
+				  anchor.click();
+
+				  // Remove the anchor from the page, it's not needed anymore
+				  document.body.removeChild(anchor);
+				}
+
+				playerInstance.on('ready', function() {
+				  // Move the timeslider in-line with other controls
+				  const playerContainer = playerInstance.getContainer();
+				  const buttonContainer = playerContainer.querySelector('.jw-button-container');
+				  const spacer = buttonContainer.querySelector('.jw-spacer');
+				  const timeSlider = playerContainer.querySelector('.jw-slider-time');
+				  buttonContainer.replaceChild(timeSlider, spacer);
+				});
+				</script>
+				<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+				<script>LA.init({id: "JHeurYfwPGlUTZgR",ck: "JHeurYfwPGlUTZgR"})</script>
+			</div>
+			
+		    <footer id="footer" class="col-md-12 text-center" style="margin-top: 5px;">
+			    <div class="inner">
+			    	<p style="font-size:18px;font-weight:blod">
+			    	Copyright © 2025 www.itisxx.com. All Rights Reserved。&nbsp;&nbsp;|&nbsp;&nbsp;
+			        Made with <span class='with-love'><i class='fas fa-heartbeat'></i></span>
+			        </p>
+					<p>
+						<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+						<script>LA.init({id:"KkGD11SrZQZC1Xsa",ck:"KkGD11SrZQZC1Xsa",autoTrack:true,screenRecord:true})</script>
+						<a target="_blank" title="51la网站统计" href="https://v6.51.la/land/KkGD11SrZQZC1Xsa"><img src="https://sdk.51.la/icon/2-4.png"></a>
+						<script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/KkGD11SrZQZC1Xsa/quote.js?theme=3&f=12"></script>
+					</p>
+			    </div>
+			</footer-->
+		</div>
+	</div>
+</div>
+<script src="//cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcdn.net/ajax/libs/font-awesome/6.5.2/js/solid.min.js"></script>
+<script src="//cdn.bootcdn.net/ajax/libs/font-awesome/6.5.2/js/fontawesome.min.js"></script>
+</body>
+</html>
